@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title><%=htmlWebpackPlugin.options.title %></title>
+    </head>
+    <body>
+		<%= htmlWebpackPlugin.options.filename %>
+
+		<script type="text/javascript" src="<%= htmlWebpackPlugin.files.chunks.main.entry %>"></script>
+    </body>
+</html>
