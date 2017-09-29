@@ -2,12 +2,11 @@ var path = require('path');
 var htmlWebpackPlugin = require('html-webpack-plugin');
 var CleanWebpackPlugin = require('clean-webpack-plugin');
 
-// --config,chunkhash,publicPath,chunks指定多个页面的js文件，excludeChuncks
+// --config,chunkhash,publicPath
 module.exports = {
     entry: {
         main: './src/script/main.js',
-        a: './src/script/a.js',
-        app: './src/app.js'
+        a: './src/script/a.js'
     },
     output: {
         path: path.resolve(__dirname, 'dist'),
@@ -64,8 +63,6 @@ module.exports = {
         new CleanWebpackPlugin(['dist']),
         new htmlWebpackPlugin({
             template: 'index.ejs',
-            filename: 'index.html',
-            inject: 'body',
             title: 'webpack is good',
             minify: {
                 removeComments: true,//删除注释
