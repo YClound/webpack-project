@@ -12,13 +12,19 @@ module.exports = {
         path: path.resolve(__dirname, 'dist'),
         filename: 'src/script/[name].[chunkhash].js'
     },
+    devtool: 'inline-source-map',
+    devServer: {
+        contentBase: path.join(__dirname, "dist"),
+        port: 9000
+    },
     module: {
-        loader: [
+        rules: [
             {
                 test: /\.js$/,
                 exclude: path.resolve(__dirname, 'node_modules'),
-                include: path.resolve(__dirname, 'src'),
-                loader: 'babel'
+                use: [
+                    'babel-loader'
+                ]
             },
             {
                 test: /\.html$/,
