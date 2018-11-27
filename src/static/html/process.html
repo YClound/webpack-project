@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>进度条</title>
+
+    <style type="text/css">
+        /*圆环进度条*/
+        .circle-process-wrap .circle-content{
+            box-sizing: border-box;
+            width: 100px;
+            height: 100px;
+            border-radius: 50px;
+            clip: rect(0px, 100px, 100px, 50px);
+            position: relative;
+            border: 10px solid #dfdfdf;
+        }
+        .circle-process-wrap .percent {
+            position: absolute;
+            left: -10px;
+            top: -10px;
+            box-sizing: border-box;
+            border: 10px solid green;
+            border-radius: 50px;
+            clip: rect(0px, 100px, 100px, 50px);
+        }
+        .circle-process-wrap .percent.left{
+            -webkit-animation-duration: 6s;
+            -webkit-animation-name: left-spin;
+            -webkit-animation-iteration-count: 1;
+            -webkit-animation-fill-mode: forwards;
+            -webkit-animation-timing-function:linear;
+        }
+
+
+        @-webkit-keyframes left-spin {
+            from {
+                width: 0px;
+                height: 0px;
+                -webkit-transform: rotate(0deg);
+            }
+            to {
+                width: 100px;
+                height: 100px;
+                -webkit-transform: rotate(360deg);
+            }
+        }
+
+
+        .circle-process-wrap .percent.right {
+            -webkit-animation-duration: 3s;
+            -webkit-animation-name: right-spin;
+            -webkit-animation-iteration-count: 1;
+            -webkit-animation-fill-mode: forwards;
+            -webkit-animation-timing-function:linear;
+        }
+
+        @-webkit-keyframes right-spin {
+            from {
+                -webkit-transform: rotate(0deg);
+            }
+            to {
+                -webkit-transform: rotate(180deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="circle-process-wrap">
+        <div class="circle-content">
+            <div class="percent left"></div>
+            <div class="percent right"></div>
+        </div>
+        <div class="number">61%</div>
+    </div>
+</body>
+</html>
