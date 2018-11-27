@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="mix-blend-mode描述了元素的内容应该与元素的直系父元素的内容和元素的背景如何混合">
+    <script type="text/javascript" src="./src/static/js/jquery-3.3.1.min.js"></script>
+    <title>混合模式</title>
+
+    <style type="text/css">
+        body {
+            background-color: #fff;
+            text-align: center;
+        }
+
+        .example-1 .container {
+            position: relative;
+            width: 150px;
+            height: 150px;
+            margin: 100px auto;
+        }
+
+        .example-1 .container > div {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            -webkit-mix-blend-mode: normal;
+            mix-blend-mode: normal;
+        }
+
+        .example-1 .title {
+            color: #333;
+            font-size: 24px;
+            line-height: 32px;
+            text-align: center;
+        }
+
+        .example-1 .red {
+            background-color: rgba(255, 0, 0, .8);
+            transform: translateX(25%);
+        }
+
+        .example-1 .blue {
+            background-color: rgba(0, 255, 0, .8);
+            transform: translateX(-25%);
+        }
+
+        .example-1 .white {
+            background-color: rgba(0, 0, 255, .8);
+            transform: translateY(-25%);
+        }
+
+        .example-2 {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            margin: 0 auto;
+        }
+        .example-2 .box{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            transform-origin: 52% 52%;
+            mix-blend-mode: screen;
+        }
+
+        .example-2 .box:first-of-type {
+            background-color: #0801fb;
+            animation: turn 3s linear 1s infinite;
+        }
+
+        .example-2 .box:nth-child(2) {
+            background-color: #1ffe27;
+            animation: turn 3s linear 0s infinite;
+        }
+
+        .example-2 .box:last-of-type {
+            background-color: #fd1a20;
+            animation: turn 3s linear -1s infinite;
+        }
+
+        @keyframes turn {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .example-3 {
+            width: 600px;
+            height: 400px;
+            background-color: #000000;
+            padding-top: 100px;
+            margin: 20px auto;
+        }
+
+        .example-3 .container {
+            width: 200px;
+            height: 200px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .example-3 .box {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            border: 1px solid #fff;
+            background: rgb(0, 0, 0);
+            box-shadow: inset 0 25px 0 25px rgb(255, 255, 255);
+            mix-blend-mode: difference;
+        }
+
+        .example-3 .box:first-of-type {
+            transform: rotate(60deg) translate(0, 50%);
+            animation: move1 10s linear infinite alternate;
+        }
+        @keyframes move1 {
+            100% {
+                transform: rotate(1140deg) translate(100px);
+            }
+        }
+
+        .example-3 .box:nth-child(2) {
+            transform: rotate(120deg) translate(0, 50%);
+            animation: move2 10s linear infinite alternate;
+        }
+        @keyframes move2 {
+            100% {
+                transform: rotate(1200deg) translate(100px);
+            }
+        }
+
+        .example-3 .box:nth-child(3) {
+            transform: rotate(180deg) translate(0, 50%);
+            animation: move3 10s linear infinite alternate;
+        }
+        @keyframes move3 {
+            100% {
+                transform: rotate(1260deg) translate(100px);
+            }
+        }
+
+        .example-3 .box:nth-child(4) {
+            transform: rotate(240deg) translate(0, 50%);
+            animation: move4 10s linear infinite alternate;
+        }
+        @keyframes move4 {
+            100% {
+                transform: rotate(1320deg) translate(100px);
+            }
+        }
+
+        .example-3 .box:nth-child(5) {
+            transform: rotate(300deg) translate(0, 50%);
+            animation: move5 10s linear infinite alternate;
+        }
+        @keyframes move5 {
+            100% {
+                transform: rotate(1380deg) translate(100px);
+            }
+        }
+
+        .example-3 .box:last-of-type {
+            transform: rotate(360deg) translate(0, 50%);
+            animation: move6 10s linear infinite alternate;
+        }
+        @keyframes move6 {
+            100% {
+                transform: rotate(1440deg) translate(100px);
+            }
+        }
+
+        .text {
+            width: 200px;
+            margin: 20px auto;
+            height: 50px;
+            line-height: 50px;
+            color: #ffffff;
+            background-color: #1a9df9;
+            border-radius: 5px;
+            mix-blend-mode: revert;
+        }
+    </style>
+</head>
+<body>
+
+<div class="text">MIX BLEND MODE</div>
+
+<div class="example-1">
+    <h1 class="title">Mix Blend Mode:
+        <select id="select">
+            <option value="normal">normal -- 正常</option>
+            <option value="multiply">multiply -- 正片叠底</option>
+            <option value="screen">screen -- 滤色</option>
+            <option value="overlay">overlay -- 叠加</option>
+            <option value="darken">darken -- 变暗</option>
+            <option value="lighten">lighten -- 变亮</option>
+            <option value="color-dodge">color-dodge -- 颜色减淡</option>
+            <option value="color-burn">color-burn -- 颜色加深</option>
+            <option value="hard-light">hard-light -- 强光</option>
+            <option value="soft-light">soft-light -- 柔光</option>
+            <option value="difference">difference -- 差值</option>
+            <option value="exclusion">exclusion -- 排除</option>
+            <option value="hue">hue -- 色相</option>
+            <option value="saturation">saturation -- 饱和度</option>
+            <option value="color">color -- 颜色</option>
+            <option value="luminosity">luminosity -- 亮度</option>
+        </select>
+    </h1>
+
+    <div class="container">
+        <div class="mode red"></div>
+        <div class="mode blue"></div>
+        <div class="mode white"></div>
+    </div>
+</div>
+
+
+<div class="example-2">
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+</div>
+
+
+<div class="example-3">
+    <div class="container">
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+
+    // 混合模式选择选择
+    $('#select').on('change', function(e) {
+        var value = $(this).val();
+        $('.mode').css({
+            'mix-blend-mode': value
+        });
+    });
+</script>
+</body>
+</html>
