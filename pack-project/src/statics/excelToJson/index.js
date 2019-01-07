@@ -33,7 +33,7 @@ function cellValueToDict2(keys, row) {
 
 var workbook = new Excel.Workbook();
 workbook.xlsx.readFile(__dirname + '/fee-excel.xlsx').then(function() {
-    var worksheet = workbook.getWorksheet(3);
+    var worksheet = workbook.getWorksheet(2);
     var dataArray = changeRowsToDict(worksheet);
     fs.writeFileSync(__dirname + '/formatJson.json ', JSON.stringify(dataArray))
 });
