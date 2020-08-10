@@ -1,6 +1,5 @@
 const path = require('path');
 const htmlWebpackPlugin = require('html-webpack-plugin'); // html模板引入
-const { CleanWebpackPlugin } = require('clean-webpack-plugin'); // 清除打包文件
 const VuewLoaderPlugin = require('vue-loader/lib/plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const Happypack = require('happypack');
@@ -11,8 +10,7 @@ const devMode = process.argv.indexOf('--mode=production') === -1;
 module.exports = {
   entry: {
     app: path.resolve(__dirname, '../src/app.js'),
-    vendors: path.resolve(__dirname, '../src/utils/vendors.js'),
-    main: path.resolve(__dirname, '../static/utils/main.js') 
+    // main: path.resolve(__dirname, '../static/utils/main.js')
   },
   output: {
     path: path.resolve(__dirname, '../dist'),
@@ -114,30 +112,26 @@ module.exports = {
     },
     extensions: ['*', '.js', '.json', '.vue']
   },
-  externals: {
-
-  },
   plugins: [
-    new CleanWebpackPlugin(),
     new htmlWebpackPlugin({
       template: path.resolve(__dirname, '../src/index.html'),
       filename: 'index.html',
-      chunks: ['app', 'vendors']
-      // minify: {
-      //     removeComments: true,//删除注释
-      //     collapseWhitespace: true,//删除空格
-      // }
+      chunks: ['app', 'vue-vendor', 'iView-vendor'],
+      minify: {
+          removeComments: true,//删除注释
+          collapseWhitespace: true,//删除空格
+      }
     }),
     new MiniCssExtractPlugin({
       filename: devMode ? '[name].css' : '[name].[hash].css',
       chunkFilename: devMode ? '[id].css' : '[id].[hash].css'
     }),
     new VuewLoaderPlugin(),
-    new htmlWebpackPlugin({
-      template: path.resolve(__dirname, '../public/index.html'),
-      filename: 'public.html',
-      chunks: ['main'], // 与入口文件对应的模块名
-    }),
+    // new htmlWebpackPlugin({
+    //   template: path.resolve(__dirname, '../public/index.html'),
+    //   filename: 'public.html',
+    //   chunks: ['main'], // 与入口文件对应的模块名
+    // }),
     new Happypack({
       id: 'happyBabel',
       loaders: [
