@@ -6,8 +6,10 @@ console.log(process.env.NODE_ENV)
 const ENV = process.env.NODE_ENV || 'development';
 
 module.exports = {
+    recordsPath: path.join(__dirname, 'records.json'),
     entry: {
         app: path.resolve(__dirname, '../src/index.ts'),
+        asyncApp: path.resolve(__dirname, '../src/asyncIndex.ts')
     },
     output: {
         path: path.resolve(__dirname, '../dist'),
@@ -51,7 +53,8 @@ module.exports = {
         //     filename: 'main.css'
         // }),
         new HtmlWebpackPlugin({
-            template: path.resolve(__dirname, '../index.html')
+            template: path.resolve(__dirname, '../index.html'),
+            chunks: ['app', 'asyncApp']
         })
     ]
 }
