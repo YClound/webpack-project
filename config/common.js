@@ -1,8 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-// const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-console.log(process.env.NODE_ENV)
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 const ENV = process.env.NODE_ENV || 'development';
 
 module.exports = {
@@ -25,36 +24,41 @@ module.exports = {
                 use: ['ts-loader'],
                 exclude: /node_modules/,
             },
-            // {
-            //     test: /\.(sc|c)ss/i,
-            //     use: [
-            //         ENV === 'development' ? 'style-loader' : MiniCssExtractPlugin.loader, 
-            //         'css-loader',
-            //         'postcss-loader',
-            //         'sass-loader',
-            //     ],
-            //     exclude: /node_modules/,
-            // },
-            // {
-            //     test: /\.(jpg|png|jpeg|gif)$/i,
-            //     use: ['url-loader'],
-            //     exclude: /node_modules/,
-            // },
-            // {
-            //     test: /\.(woff|woff2|eot|ttf|otf)$/i,
-            //     use: ['file-loader'],
-            //     exclude: /node_modules/,
-            // },
+            {
+                test: /\.(sc|c)ss/i,
+                use: [
+                    ENV === 'development' ? 'style-loader' : MiniCssExtractPlugin.loader, 
+                    'css-loader',
+                    'postcss-loader',
+                    'sass-loader',
+                ],
+                exclude: /node_modules/,
+            },
+            {
+                test: /\.(jpg|png|jpeg|gif)$/i,
+                use: ['url-loader'],
+                exclude: /node_modules/,
+            },
+            {
+                test: /\.(woff|woff2|eot|ttf|otf)$/i,
+                use: ['file-loader'],
+                exclude: /node_modules/,
+            },
         ]
     },
     plugins: [
-        new CleanWebpackPlugin(),
-        // new MiniCssExtractPlugin({
-        //     filename: 'main.css'
-        // }),
+        new MiniCssExtractPlugin({
+            filename: 'main.css'
+        }),
+        new CopyWebpackPlugin({
+            patterns: [{
+                from: path.resolve(__dirname, '../static'),
+                to: path.resolve(__dirname, '../dist/static'),
+            }]
+        }),
         new HtmlWebpackPlugin({
             template: path.resolve(__dirname, '../index.html'),
             chunks: ['app', 'asyncApp']
-        })
+        }),
     ]
 }

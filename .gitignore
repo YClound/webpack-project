@@ -9,3 +9,4 @@ src/.Ds_Store
 .iml
 .DS_Store
 .cache/
+.vscode/

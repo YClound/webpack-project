@@ -1,0 +1,87 @@
+{
+  "HtmlWebpackCompiler": [
+    {
+      "modules": {
+        "byIdentifier": {
+          "node_modules/html-webpack-plugin/lib/loader.js!index.html": 0
+        },
+        "usedIds": {
+          "0": 0
+        }
+      },
+      "chunks": {
+        "byName": {
+          "HtmlWebpackPlugin_0": 0
+        },
+        "bySource": {
+          "0 HtmlWebpackPlugin_0": 0
+        },
+        "usedIds": [
+          0
+        ]
+      }
+    }
+  ],
+  "modules": {
+    "byIdentifier": {
+      "node_modules/tapable/lib/Hook.js": 0,
+      "node_modules/tapable/lib/HookCodeFactory.js": 1,
+      "node_modules/tapable/lib/index.js": 2,
+      "node_modules/tapable/lib/SyncBailHook.js": 3,
+      "node_modules/tapable/lib/Tapable.js": 4,
+      "node_modules/util/util.js": 5,
+      "node_modules/process/browser.js": 6,
+      "node_modules/util/support/isBufferBrowser.js": 7,
+      "node_modules/util/node_modules/inherits/inherits_browser.js": 8,
+      "node_modules/tapable/lib/SyncHook.js": 9,
+      "node_modules/tapable/lib/SyncWaterfallHook.js": 10,
+      "node_modules/tapable/lib/SyncLoopHook.js": 11,
+      "node_modules/tapable/lib/AsyncParallelHook.js": 12,
+      "node_modules/tapable/lib/AsyncParallelBailHook.js": 13,
+      "node_modules/tapable/lib/AsyncSeriesHook.js": 14,
+      "node_modules/tapable/lib/AsyncSeriesBailHook.js": 15,
+      "node_modules/tapable/lib/AsyncSeriesWaterfallHook.js": 16,
+      "node_modules/tapable/lib/HookMap.js": 17,
+      "node_modules/tapable/lib/MultiHook.js": 18,
+      "node_modules/ts-loader/index.js!src/index.ts dbe7b0f146a9327cd40efdd79ff05c4b": 19,
+      "node_modules/ts-loader/index.js!src/asyncIndex.ts 2a547444d2a26a8efd5fa85a76cde226": 20
+    },
+    "usedIds": {
+      "0": 0,
+      "1": 1,
+      "2": 2,
+      "3": 3,
+      "4": 4,
+      "5": 5,
+      "6": 6,
+      "7": 7,
+      "8": 8,
+      "9": 9,
+      "10": 10,
+      "11": 11,
+      "12": 12,
+      "13": 13,
+      "14": 14,
+      "15": 15,
+      "16": 16,
+      "17": 17,
+      "18": 18,
+      "19": 19,
+      "20": 20
+    }
+  },
+  "chunks": {
+    "byName": {
+      "app": 0,
+      "asyncApp": 1
+    },
+    "bySource": {
+      "0 app": 0,
+      "0 asyncApp": 1
+    },
+    "usedIds": [
+      0,
+      1
+    ]
+  }
+}
