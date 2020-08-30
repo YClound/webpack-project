@@ -5,7 +5,6 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const ENV = process.env.NODE_ENV || 'development';
 
 module.exports = {
-    recordsPath: path.join(__dirname, 'records.json'),
     entry: {
         app: path.resolve(__dirname, '../src/index.ts'),
         asyncApp: path.resolve(__dirname, '../src/asyncIndex.ts')
@@ -23,6 +22,7 @@ module.exports = {
                 test: /\.(ts|tsx)$/i,
                 use: ['ts-loader'],
                 exclude: /node_modules/,
+                include: [/src/]
             },
             {
                 test: /\.(sc|c)ss/i,

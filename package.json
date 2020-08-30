@@ -1,5 +1,6 @@
 {
   "scripts": {
+    "testComJs": "node ./static/CommonJs/index.js",
     "dev": "webpack-dev-server --config ./config/dev.js",
     "build": "webpack --config ./config/prod.js --progress"
   },
