@@ -5,8 +5,8 @@ const webpackCommon = require('./common');
 module.exports = merge({}, webpackCommon, {
     mode: 'development',
     devServer: {
-        // open: true,
         port: 1234,
+        host: '0.0.0.0',
         compress: true,
         historyApiFallback: true,
         contentBase: path.join(__dirname, '../dist'),

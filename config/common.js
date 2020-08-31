@@ -7,14 +7,19 @@ const ENV = process.env.NODE_ENV || 'development';
 module.exports = {
     entry: {
         app: path.resolve(__dirname, '../src/index.ts'),
-        asyncApp: path.resolve(__dirname, '../src/asyncIndex.ts')
+        asyncApp: path.resolve(__dirname, '../src/asyncIndex.ts'),
+        main: path.resolve(__dirname, '../src/app.tsx'),
     },
     output: {
         path: path.resolve(__dirname, '../dist'),
         filename: '[name].bundle.[hash].js',
+        publicPath: '/'
     },
     resolve: {
-        extensions: ['.js', '.jsx', '.tsx', '.ts'] //引入文件时无需加以上后缀
+        extensions: ['.js', '.jsx', '.tsx', '.ts'], //引入文件时无需加以上后缀
+        alias: {
+            '@': path.resolve(__dirname, '../src'),
+        },
     },
     module: {
         rules: [
@@ -58,7 +63,8 @@ module.exports = {
         }),
         new HtmlWebpackPlugin({
             template: path.resolve(__dirname, '../index.html'),
-            chunks: ['app', 'asyncApp']
+            // chunks: ['app', 'asyncApp']
+            chunks: ['main']
         }),
     ]
 }
