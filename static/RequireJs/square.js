@@ -8,15 +8,16 @@
  */
 
 // 定义有依赖的模块
-define(['dataService'], function (dataService) {
-    console.log('执行 alerter.js');
+define([
+    'multiply'
+], function (multiplyModule) {
+    console.log('加载了 square 模块');
 
-    let name = 'Tom';
+    var square = function (num) {
+        return multiplyModule.multiply(num, num);
+    };
 
-    function showMsg() {
-        console.log(dataService.getMsg() + ', ' + name)
-    }
-
-    // 暴露模块
-    return { showMsg }
+    return {
+        square
+    }; // 暴露模块
 });

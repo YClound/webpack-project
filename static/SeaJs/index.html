@@ -11,7 +11,9 @@
 
     <script src="../vendors/sea.js"></script>
     <script type="text/javascript">
-        seajs.use('./index.js');
+        seajs.use(['./index.js'], function() {
+            console.log('同步模块执行完成')
+        });
     </script>
 </body>
 

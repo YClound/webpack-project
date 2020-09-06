@@ -1,10 +1,10 @@
 define(function(require, exports, module) {
-    console.log('执行 module1');
+    console.log('加载了 module1');
     
-    var data = 'www.baidu.com';
+    var data = require('./data.js');
 
     function show() {
-        console.log('module1 show()', data)
+        console.log('module1 show()', data.msg)
     }
 
     exports.show = show;

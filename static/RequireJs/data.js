@@ -7,15 +7,14 @@
  * 需要注意的是，dependencies有多少个元素，factory就有多少个传参，位置一一对应。
  */
 
-// 定义没有依赖的模块
-define(function () {
-    console.log('执行 dataService.js');
-    
-    let msg = 'www.baidu.com';
+// 定义无依赖的模块
+console.log('加载了 data模块');
 
-    function getMsg() {
-        return msg.toUpperCase()
-    }
-    
-    return { getMsg } // 暴露模块
-});
+var data = {
+    a: 10,
+    b: 20,
+}
+
+define(data);
+
+// console.log(data);

@@ -1,5 +1,5 @@
 define(function (require, exports, module) {
-    console.log('执行module4');
+    console.log('加载了 module4');
     
     //引入依赖模块(同步)
     var module2 = require('./module2');

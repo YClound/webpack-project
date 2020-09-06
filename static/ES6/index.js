@@ -5,6 +5,7 @@
  * 2
  * 9
  */
+console.log('执行了 index.js');
 
 import { add } from './add.js';
 console.log(add(1, 1))
