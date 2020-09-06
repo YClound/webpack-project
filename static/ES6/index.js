@@ -7,8 +7,12 @@
  */
 console.log('执行了 index.js');
 
-import { add } from './add.js';
+import { add, setDefultAdd, a, b } from './add.js';
 console.log(add(1, 1))
+
+setDefultAdd(20, 20)
+
+console.log(add(), a, b)
 
 import { square } from './square.js';
 console.log(square(3));

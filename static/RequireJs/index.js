@@ -10,7 +10,7 @@
  */
 
 (function () {
-    console.log('执行了 index.js');
+    console.log('执行了 index.js', +new Date());
 
     require.config({
         baseUrl: './', //基本路径 出发点在根目录下
@@ -24,11 +24,7 @@
     });
 
     require(['add', 'square'], function (addModule, squareModule) {
-
         console.log(addModule.add(1, 1));
-
-        console.log(addModule.add())
-
         console.log(squareModule.square(3));
     });
 })();

@@ -11,7 +11,7 @@
 define([
     'multiply'
 ], function (multiplyModule) {
-    console.log('加载了 square 模块');
+    console.log('加载了 square 模块', +new Date());
 
     var square = function (num) {
         return multiplyModule.multiply(num, num);

@@ -2,7 +2,7 @@
 define([
     'data',
 ], function (dataModule) {
-    console.log('加载了 add 模块');
+    console.log('加载了 add 模块', +new Date());
 
     // const add = (a = dataModule.a, b = dataModule.b) => { return a + b; }
 
