@@ -5,14 +5,17 @@
  * 2
  * 9
  */
-console.log('执行了 index.js');
+// console.log('执行了 index.js');
 
-import { add, setDefultAdd, a, b } from './add.js';
-console.log(add(1, 1))
+// import { add, setDefultAdd, a, b } from './add.js';
+// import { square } from './square.js';
+// console.log(add(1, 1))
 
-setDefultAdd(20, 20)
+// setDefultAdd(20, 20)
 
-console.log(add(), a, b)
+// console.log(add(), a, b)
 
-import { square } from './square.js';
-console.log(square(3));
+// console.log(square(3));
+
+import { exportVar } from './exports.js';
+console.log(exportVar, '222222')

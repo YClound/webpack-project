@@ -11,6 +11,11 @@ function printIntRandom() {
 }
 
 
+// common.js导出的是值的浅拷贝
+/**
+ * setDefaultRandom() 
+ * 导出的random不变
+ */
 function setDefaultRandom(value) {
     random = 100 || value;
 }
@@ -19,6 +24,10 @@ function getDefaultRandom() {
     return random;
 }
 
+/**
+ * setDefaultObj();
+ * 导出的obj改变
+ */
 var obj = {
     name: 'GU',
     age: 18

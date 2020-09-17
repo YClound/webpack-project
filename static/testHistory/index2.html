@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>index-2</title>
+</head>
+
+<body>
+  <h1>index-2</h1>
+
+  <script type="text/javascript">
+
+    window.onload = (e) => {
+      console.log(222222222, e, document.readyState)
+      
+      window.history.pushState('', './index2.html')
+
+      window.onpopstate = function(event) {
+        console.log('111111111', event);
+        // window.history.forward(1);
+        location.replace('https://www.baidu.com')
+      }
+    }
+  </script>
+</body>
+
+</html>

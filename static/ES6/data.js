@@ -5,6 +5,4 @@ const data = {
     b: 20,
 }
 
-// console.log(data);
-
 export default data;
