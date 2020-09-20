@@ -1,8 +1,11 @@
+console.log('module4 加载');
+
 define(function (require, exports, module) {
-    console.log('加载了 module4');
-    
+    console.log('module4 执行');
+
     //引入依赖模块(同步)
     var module2 = require('./module2');
+
     function show() {
         console.log('module4 show() ' + module2.msg)
     }

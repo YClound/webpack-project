@@ -1,8 +1,10 @@
 
+console.log('add 加载');
+
 define([
     'data',
 ], function (dataModule) {
-    console.log('加载了 add 模块', +new Date());
+    console.log('add 执行', dataModule,  +new Date());
 
     // const add = (a = dataModule.a, b = dataModule.b) => { return a + b; }
 

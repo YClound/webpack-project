@@ -1,5 +1,7 @@
+console.log('data 加载');
+
 define(function (require, exports, module) {
-    console.log('加载了 data模块')
+    console.log('data 执行')
     exports.data = {
         a: 10,
         b: 20,

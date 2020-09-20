@@ -6,12 +6,13 @@
  * 
  * 需要注意的是，dependencies有多少个元素，factory就有多少个传参，位置一一对应。
  */
+console.log('square 加载');
 
 // 定义有依赖的模块
 define([
     'multiply'
 ], function (multiplyModule) {
-    console.log('加载了 square 模块', +new Date());
+    console.log('square 执行');
 
     var square = function (num) {
         return multiplyModule.multiply(num, num);

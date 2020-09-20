@@ -8,7 +8,7 @@
  */
 
 // 定义无依赖的模块
-console.log('加载了 data模块', +new Date());
+console.log('data 加载', +new Date());
 
 var data = {
     a: 10,

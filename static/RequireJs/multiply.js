@@ -1,5 +1,7 @@
+console.log('multiply 加载')
+
 define(function () {
-    console.log('加载了 multiply 模块', +new Date())
+    console.log('multiply 执行')
 
     var multiply = function (x, y) {
         return x * y;

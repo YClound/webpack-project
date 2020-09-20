@@ -30,8 +30,7 @@ define(function (require, exports, module) {
     // 该函数不会加载模块，只返回解析后的绝对路径
     console.log(require.resolve('module2'), exports, module)
 
-    // var m1 = require('./module1');
-    var m1 = require('module1');
+    var m1 = require('./module1');
     m1.show();
 
     var m4 = require('./module4');
