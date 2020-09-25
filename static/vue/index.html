@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vue 的用法</title>
+</head>
+
+<body>
+  <div id="app">
+    {{ message }}
+    <span :title="message">message</span>
+    <p v-if="seen">v-if</p>
+  </div>
+
+  <script type="text/javascript" src="../vendors/vue.min.js"></script>
+  <script type="text/javascript">
+    var app = new Vue({
+      el: '#app',
+      data: {
+        message: 'Hello Vue!',
+        seen: true,
+      }
+    })
+  </script>
+</body>
+
+</html>
