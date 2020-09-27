@@ -6,6 +6,8 @@
  * 4
  */
 
+ console.log('执行index.js')
+
 //加载模块 math.js
 var math = require('./math');
 
@@ -27,6 +29,26 @@ var module2 = require('./module2');
 // console.log(module2.add(1, 3), module2.subscribe(3, 1))
 console.log('获取模块导出：', module2);
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/**
+ * 模块可以多次加载，但是只会在第一次加载时运行一次，然后运行结果就被缓存了，以后再加载，就直接读取缓存结果。要想让模块再次运行，必须清除缓存
+ */
+var math2 = require('./math');
+console.log(math2)
 
 
 

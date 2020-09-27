@@ -5,9 +5,10 @@ const subscribe = function (a, b) { return a - b; }
 
 exports.add = add;
 exports.subscribe = subscribe;
+module.exports.a = 10;
 
 /**
- * 使用module.exports导出模块；exports导出的模块被覆盖
+ * 使用module.exports赋值导出模块；exports导出的模块被覆盖
  */
 // module.exports = {
 //     add,
