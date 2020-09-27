@@ -25,4 +25,46 @@ console.log('CommonJS 输出的是值的浅拷贝：', math.random, math.obj);
  */
 var module2 = require('./module2');
 // console.log(module2.add(1, 3), module2.subscribe(3, 1))
-console.log('获取模块导出：', module2)
+console.log('获取模块导出：', module2);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// console.log('------------循环引用-----------');
+// var a = require('./a');
+// console.log(a);
