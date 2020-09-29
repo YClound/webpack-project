@@ -3,7 +3,7 @@ var output = {
     fn1: function () {
         console.log('fn1 namespace');
     }
-}
+};
 
 console.log('output._count', output._count); // 0
 

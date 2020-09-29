@@ -72,3 +72,6 @@ console.log(square(3));
 // import('./export.js').then((res) => {
 //   console.log(res);
 // })
+
+// import { a } from './export.js';
+// console.log(a);

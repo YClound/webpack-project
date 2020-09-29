@@ -10,7 +10,7 @@ var module = (function () {
         fn1: fn1,
         fn2: fn2
     }
-})()
+})();
 
 module.fn1(); // IIFE fn2
 console.log(module._count); // undefined
@@ -33,4 +33,4 @@ console.log(module._count); // undefined
     }
     //暴露行为
     window.myModule = { foo, bar }
-})(window)
+})(window);

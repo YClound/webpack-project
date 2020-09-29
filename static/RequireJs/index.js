@@ -17,7 +17,7 @@
         paths: {
             //映射: 模块标识名: 路径
             data: './data',
-            add: './add', //此处不能写成alerter.js,会报错
+            add: './add', //此处不能写成add.js,会报错
             square: './square',
             multiply: './multiply'
         }
