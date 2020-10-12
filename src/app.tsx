@@ -7,7 +7,7 @@ import Main from './main';
 import Home from './pages/home/index';
 import Welcome from './pages/welcome/index';
 import Activity from './pages/activity/index';
-// import './decorate';
+import './utils/decorate';
 
 const history = createBrowserHistory();
 
