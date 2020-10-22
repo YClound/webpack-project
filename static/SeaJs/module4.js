@@ -13,7 +13,7 @@ define(function (require, exports, module) {
   exports.show = show;
 
   //引入依赖模块(异步)
-  require.async('./module3', function (m3) {
-    console.log('异步引入依赖模块3  ' + m3.API_KEY)
-  })
+  // require.async('./module3', function (m3) {
+  //   console.log('异步引入依赖模块3  ' + m3.API_KEY)
+  // })
 });
