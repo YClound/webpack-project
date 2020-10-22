@@ -10,21 +10,21 @@
  */
 
 (function () {
-    console.log('执行了 index.js', +new Date());
+  console.log('执行了 index.js', +new Date());
 
-    require.config({
-        baseUrl: './', //基本路径 出发点在根目录下
-        paths: {
-            //映射: 模块标识名: 路径
-            data: './data',
-            add: './add', //此处不能写成add.js,会报错
-            square: './square',
-            multiply: './multiply'
-        }
-    });
+  require.config({
+    baseUrl: './', //基本路径 出发点在根目录下
+    paths: {
+      //映射: 模块标识名: 路径
+      data: './data',
+      add: './add', //此处不能写成add.js,会报错
+      square: './square',
+      multiply: './multiply'
+    }
+  });
 
-    require(['add', 'square'], function (addModule, squareModule) {
-        console.log('index.js 依赖加载完成: ', addModule.add(1, 1));
-        console.log(squareModule.square(3));
-    });
+  require(['add', 'square'], function (addModule, squareModule) {
+    console.log('index.js 依赖加载完成: ', addModule.add(1, 1));
+    console.log(squareModule.square(3));
+  });
 })();

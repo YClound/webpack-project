@@ -63,8 +63,13 @@ module.exports = {
     }),
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, '../index.html'),
-      // chunks: ['app', 'asyncApp']
+      filename: 'index.html',
       chunks: ['main']
     }),
+    new HtmlWebpackPlugin({
+      template: path.resolve(__dirname, '../index.html'),
+      filename: 'app.html',
+      chunks: ['app', 'asyncApp']
+    })
   ]
 }

@@ -7,27 +7,25 @@
  */
 console.log('执行了 index.js');
 
-import { add, setDefultAdd, a, b } from './add.js';
+import { add } from './add.js';
 import { square } from './square.js';
-console.log(add(1, 1))
 
-setDefultAdd(20, 20)
-
-console.log(add(), a, b)
-
-console.log(square(3));
+console.log('add(1,1): ', add(1, 1))
+console.log('square(3): ', square(3));
 
 
+// export 导出的是值的引用
+console.log("=======export 导出的是值的引用=======")
+import { a, b, setValue } from './testExport.js';
+setValue();
+console.log('ES6 Module导出的是值的引用：', a, b)
 
 
-
-
-
-
-
-
-
-
+// export default导出的是值的浅拷贝
+console.log("=======export default导出的是值的浅拷贝=======")
+import testExport, { setDefaultValue } from './testExportDefault.js';
+setDefaultValue();
+console.log(testExport);
 
 
 
@@ -37,7 +35,17 @@ console.log(square(3));
 
 
 
-// // 因为 CommonJS 加载的是一个对象（即module.exports属性），该对象只有在脚本运行完才会生成。而 ES6 模块不是对象，它的对外接口只是一种静态定义，在代码静态解析阶段就会生成
+
+
+
+
+
+
+
+
+
+
+// 因为 CommonJS 加载的是一个对象（即module.exports属性），该对象只有在脚本运行完才会生成。而 ES6 模块不是对象，它的对外接口只是一种静态定义，在代码静态解析阶段就会生成
 // /**
 //  * test export import
 //  */
@@ -73,5 +81,7 @@ console.log(square(3));
 //   console.log(res);
 // })
 
-// import { a } from './export.js';
-// console.log(a);
+
+// 循环引用
+import { a as a1 } from './export.js'
+console.log(a1);

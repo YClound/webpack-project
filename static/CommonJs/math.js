@@ -3,25 +3,25 @@ console.log('执行 math.js');
 var random = Math.random() * 10;
 
 function printRandom() {
-    console.log('printRandom', random)
+  console.log('printRandom', random)
 }
 
 function printIntRandom() {
-    console.log('printIntRandom', Math.floor(random))
+  console.log('printIntRandom', Math.floor(random))
 }
 
 
 // common.js导出的是值的浅拷贝
 /**
- * setDefaultRandom() 
+ * setDefaultRandom()
  * 导出的random不变
  */
 function setDefaultRandom(value) {
-    random = 100 || value;
+  random = 100 || value;
 }
 
 function getDefaultRandom() {
-    return random;
+  return random;
 }
 
 /**
@@ -29,29 +29,31 @@ function getDefaultRandom() {
  * 导出的obj改变
  */
 var obj = {
-    name: 'GU',
-    age: 18
+  name: 'GU',
+  age: 18
 }
 
 function setDefaultObj(name, age = 18) {
-    obj.name = name;
-    obj.age = age;
+  console.log('set obj:', name, age)
+  obj.name = name;
+  obj.age = age;
+  // obj = { name, age }
 }
 
 function getDefaultObj() {
-    return obj;
+  return obj;
 }
 
-console.log('this:', this)
+// console.log('this:', this);
 
 //模块输出
 module.exports = {
-    printRandom,
-    printIntRandom,
-    setDefaultRandom,
-    getDefaultRandom,
-    setDefaultObj,
-    getDefaultObj,
-    obj,
-    random,
+  printRandom,
+  printIntRandom,
+  setDefaultRandom,
+  getDefaultRandom,
+  setDefaultObj,
+  getDefaultObj,
+  obj,
+  random,
 }

@@ -5,8 +5,7 @@
  * 执行 module2.js
  * 4
  */
-
- console.log('执行index.js')
+console.log('执行index.js',);
 
 //加载模块 math.js
 var math = require('./math');
@@ -15,12 +14,14 @@ var math = require('./math');
 math.printRandom();
 math.printIntRandom();
 
+
 /**
  * CommonJS 输出的是值的浅拷贝
  */
 math.setDefaultRandom(80);
-math.setDefaultObj('yanan', 18);
+math.setDefaultObj('yanan', 30);
 console.log('CommonJS 输出的是值的浅拷贝：', math.random, math.obj);
+
 
 /**
  * 获取模块导出
@@ -28,6 +29,28 @@ console.log('CommonJS 输出的是值的浅拷贝：', math.random, math.obj);
 var module2 = require('./module2');
 // console.log(module2.add(1, 3), module2.subscribe(3, 1))
 console.log('获取模块导出：', module2);
+
+
+
+// console.log('module 变量代表当前模块：', module)
+
+
+/**
+ * require.cache 模块缓存对象
+ * require.resolve() 获取加载的模块名称
+ */
+// console.log('require.cache:', require.cache, require.resolve('./math.js'))
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -47,46 +70,47 @@ console.log('获取模块导出：', module2);
 /**
  * 模块可以多次加载，但是只会在第一次加载时运行一次，然后运行结果就被缓存了，以后再加载，就直接读取缓存结果。要想让模块再次运行，必须清除缓存
  */
-var math2 = require('./math');
-console.log(math2)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+// var math2 = require('./math');
+// console.log('-------：', math2)
 
 // console.log('------------循环引用-----------');
-// var a = require('./a');
-// console.log(a);
+// console.log('index.js ', require('./a'));
+// console.log('index.js ', require('./b'));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
