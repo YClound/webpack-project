@@ -1,10 +1,11 @@
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpaclPlugin = require('html-webpack-plugin');
+const { entryBaseFile, htmlBasePlugin } = require('./base');
 
 module.exports = {
   entry: {
-    polyfill: path.resolve(__dirname, '../src/polyfill.js'),
+    ...entryBaseFile,
     main: path.resolve(__dirname, '../src/index.js'),
   },
   output: {
@@ -21,6 +22,7 @@ module.exports = {
           loader: 'babel-loader'
         }]
       },
+      // shimming this指向window
       // {
       //   test: require.resolve('../src/index.js'),
       //   use: 'imports-loader?wrapper=window',
@@ -38,13 +40,15 @@ module.exports = {
   plugins: [
     new webpack.ProvidePlugin({
       // _: 'lodash'
-      _join: ['lodash/join'],
+      _join: ['lodash/join'], // 提供全局的_join方法
     }),
     new webpack.DefinePlugin({
       NODE_ENV: process.env.NODE_ENV
     }),
     new HtmlWebpaclPlugin({
-      template: path.resolve(__dirname, '../index.html')
-    })
+      template: path.resolve(__dirname, '../index.html'),
+      chunks: ['main'],
+    }),
+    htmlBasePlugin,
   ]
 }

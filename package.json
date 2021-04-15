@@ -29,6 +29,5 @@
   "dependencies": {
     "core-js": "^3.10.1",
     "lodash": "^4.17.21"
-  },
-  "sideEffects": false
+  }
 }
