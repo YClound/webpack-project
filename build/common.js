@@ -10,17 +10,31 @@ module.exports = {
   },
   output: {
     path: path.resolve(__dirname, '../dist'),
-    filename: '[name].[contenthash].js',
+    publicPath: './',
+    filename: 'js/[name].[contenthash].js',
     clean: true
   },
   module: {
     rules: [
       {
-        test: /\.js$/,
+        test: /\.(js|jsx)$/,
         exclude: [path.resolve(__dirname, '../node_modules')],
         use: [{
           loader: 'babel-loader'
         }]
+      },
+      {
+        test: /\.(ts|tsx)$/,
+        use: [{
+          loader: 'ts-loader',
+          options: {
+
+          }
+        }]
+      },
+      {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader']
       },
       // shimming this指向window
       // {
@@ -38,6 +52,7 @@ module.exports = {
     }
   },
   plugins: [
+    new webpack.ProgressPlugin(),
     new webpack.ProvidePlugin({
       // _: 'lodash'
       _join: ['lodash/join'], // 提供全局的_join方法
@@ -49,6 +64,11 @@ module.exports = {
       template: path.resolve(__dirname, '../index.html'),
       chunks: ['main'],
     }),
-    htmlBasePlugin,
-  ]
+    ...htmlBasePlugin,
+  ],
+  // optimization: {
+  //   splitChunks: {
+
+  //   }
+  // }
 }

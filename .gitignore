@@ -8,3 +8,4 @@ node_modules
 src/.Ds_Store
 .iml
 dev
+.DS_Store
