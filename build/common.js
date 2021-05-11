@@ -2,6 +2,7 @@ const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpaclPlugin = require('html-webpack-plugin');
 const { entryBaseFile, htmlBasePlugin } = require('./base');
+const spritesPlugins = require('./spritesmith');
 
 module.exports = {
   entry: {
@@ -65,6 +66,7 @@ module.exports = {
       chunks: ['main'],
     }),
     ...htmlBasePlugin,
+    ...spritesPlugins,
   ],
   // optimization: {
   //   splitChunks: {
